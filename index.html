@@ -61,9 +61,20 @@
     }
 
     function openWindow() {
+        liff.openWindow({
+            url: "https://line.me",
+            external: true
+        })
     }
 
     async function getFriendship() {
+        const friendship = await liff.getFriendship()
+        document.getElementById("friendship").append(friendship.friendFlag)
+        if (!friendship.friendFlag) {
+            if (confirm("abce")) {
+                window.location = ""
+            }
+        }
     }
 
     async function sendMsg() {
